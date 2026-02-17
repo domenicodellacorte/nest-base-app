@@ -1,0 +1,25 @@
+{
+  "name": "Nest, Node 24.4",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--name", "nest-app-devcontainer"],
+  "postCreateCommand": "npm i -g @nestjs/cli",
+  "mounts": [
+    "source=nest-app-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "seatonjiang.gitmoji-vscode",
+        "mhutchie.git-graph"
+      ]
+    }
+  },
+  "containerEnv": {
+    "CHOKIDAR_USEPOLLING": "true",
+    "CHOKIDAR_INTERVAL": "200",
+    "TSC_WATCHFILE": "UsePolling"
+  }
+}
